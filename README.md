@@ -4,7 +4,8 @@ The application is a generic backend service built using Django Rest Framework (
 
 Overall, this application provides a solid foundation for building various types of backend services, with a focus on user authentication and post management, leveraging Django Rest Framework and Google's service account for cloud storage functionality.
 
-# Database
+## Database
+----
 
 To integrate the google drive storage functionality with DRF , follow this blog  : [Django-GDrive](https://django-googledrive-storage.readthedocs.io/en/latest/)
 
@@ -13,15 +14,16 @@ Create the database :
 `python manage.py migrate` 
 
 
-# Endpoints 
+## Endpoints 
+----
 Run the server :    
  `python .\manage.py runserver` 
 
 Here are the API endpoints from our backend service :
 
-## Auth
+### Auth
 
-- ### <span style="color:green"> /auth/register  
+- #### <span style="color:green"> /auth/register  
 
     Use : `To register a user` \
     Format :  `POST Request`
@@ -32,7 +34,7 @@ Here are the API endpoints from our backend service :
             "password": "***"
         }
         
-- ### <span style="color:green"> /auth/super-register  
+- #### <span style="color:green"> /auth/super-register  
 
     Use : `To register a super-user` \
     Format :  `POST Request`
@@ -44,7 +46,7 @@ Here are the API endpoints from our backend service :
         }
 
 
-- ### <span style="color:green"> /auth/login
+- #### <span style="color:green"> /auth/login
     Use : `To login , Obtain the token from response for future usage` \
     Format : `POST Request`
 
@@ -53,7 +55,7 @@ Here are the API endpoints from our backend service :
             "password": "***"
         }
 
-- ### <span style="color:green"> /auth/forgot-password  
+- #### <span style="color:green"> /auth/forgot-password  
 
     Use : `To register a user` \
     Format :  `POST Request`
@@ -63,7 +65,7 @@ Here are the API endpoints from our backend service :
             "password": "newpassword"
         }
 
-- ###  <span style="color:green"> /auth/delete-user
+- ####  <span style="color:green"> /auth/delete-user
 
     Use : `To register a user` \
     Format :  `POST Request`
@@ -72,18 +74,18 @@ Here are the API endpoints from our backend service :
             "email": "subhamsubhasis2002@gmail.com",
         }
 
-- ### <span style="color:green"> /auth/all-users
+- #### <span style="color:green"> /auth/all-users
 
     Use : `To get all users info` \
     Format :  `GET Request`
 
-- ### <span style="color:green"> /auth/all-users/< email >
+- #### <span style="color:green"> /auth/all-users/< email >
 
     Use : `To get user info` \
     Format :  `GET Request`
 
 
-- ### <span style="color:green"> /auth/update-profile/< email >
+- #### <span style="color:green"> /auth/update-profile/< email >
 
     Use : `To register a user` \
     Format :  `POST Request (Name and profile pic)`
@@ -93,9 +95,9 @@ Here are the API endpoints from our backend service :
 
 -----
 
-## Posts
+### Posts
 
-- ### <span style="color:green"> /post/post/
+- #### <span style="color:green"> /post/post/
 
     Use : `To view and add posts` \
     Permission : \
@@ -106,7 +108,7 @@ Here are the API endpoints from our backend service :
 
         Authorization: "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIwMjBjc2IxMzE3QGlpdHJwci5hYy5pbiIsImV4cCI6MTY4MDgyMDgwNH0.wgsupH5q67u5qjo_pHSe71OHolP2S2iEjUwjEVSFgSk"
 
-- ### <span style="color:green"> /post/post/delete-post/id
+- #### <span style="color:green"> /post/post/delete-post/id
 
     Use : `To delete post by id` \
     Permission : \
@@ -116,12 +118,12 @@ Here are the API endpoints from our backend service :
 
         Authorization: "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIwMjBjc2IxMzE3QGlpdHJwci5hYy5pbiIsImV4cCI6MTY4MDgyMDgwNH0.wgsupH5q67u5qjo_pHSe71OHolP2S2iEjUwjEVSFgSk"
 
-- ### <span style="color:green"> /post/post/< chapterName > 
+- #### <span style="color:green"> /post/post/< chapterName > 
 
     Use : `To get all posts by chapter name` \
     Permission : `All can get it (GET request)`
 
-- ### <span style="color:green"> /post/post/id/< id >
+- #### <span style="color:green"> /post/post/id/< id >
 
     Use : `To get post by id` \
     Permission : \
@@ -132,14 +134,14 @@ Here are the API endpoints from our backend service :
 
         Authorization: "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIwMjBjc2IxMzE3QGlpdHJwci5hYy5pbiIsImV4cCI6MTY4MDgyMDgwNH0.wgsupH5q67u5qjo_pHSe71OHolP2S2iEjUwjEVSFgSk"
 
-- ### <span style="color:green"> /post/post/like/id/< id > 
+- #### <span style="color:green"> /post/post/like/id/< id > 
 
     Use : `To get likes , dislikes, liked_users, disliked_users, post by id` \
     Permission : \
         `GET - Everyone` \
         `PUT - Everyone`  
-
-# Deployment
+---
+## Deployment
 
 ### Step 1: Set up the Server
 
@@ -190,6 +192,6 @@ Follow this blog for detailed steps : [Deployment](https://realpython.com/django
 
 
 
-
+---
 
 
