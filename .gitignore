@@ -1,0 +1,9 @@
+**.mp3
+**.pdf
+*/__pycache__/
+*.pyc
+*.sqlite3
+*/migrations/
+
+**/node_modules/
+**/env/
