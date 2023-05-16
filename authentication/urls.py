@@ -13,7 +13,7 @@ urlpatterns = [
          name="forgot-pass"),
 
     path('delete-user', views.DeleteUserView.as_view(),
-         name="forgot-pass"),
+         name="delete-user"),
 
     path('all-users/<email>', views.UserEmailView.as_view(),
          name="all-users-email"),

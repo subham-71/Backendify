@@ -25,8 +25,11 @@ permission2 =  GoogleDriveFilePermission(
    GoogleDrivePermissionType.USER,
    EMAIL2
 )
-gd_storage = GoogleDriveStorage(permissions=(permission1, permission2))
 
+gd_storage = GoogleDriveStorage(permissions=(permission1,permission2 ))
+
+# Define Google Drive Storage
+gd_storage = GoogleDriveStorage()
 # Define Google Drive Storage
 gd_storage = GoogleDriveStorage()
 
@@ -34,7 +37,7 @@ gd_storage = GoogleDriveStorage()
 
 
 def user_photo(instance, filename):
-    return 'profile_photo/{0}/{1}/{2}'.format(instance.organization,instance.email, filename)
+    return 'profile_photo/{1}'.format(instance.id, filename)
 
 
 class MyUserManager(UserManager):

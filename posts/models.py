@@ -46,5 +46,4 @@ class Post(models.Model):
     class Meta:
         db_table = "post"
         verbose_name_plural = "posts"
-        # unique_together=(("className", "subjectName","chapterName"),)
 

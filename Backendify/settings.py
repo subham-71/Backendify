@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0nm%#+ll4f3onawx3v1@ybf-$_q-#hs+%+vi9oov_rkh5=oea('
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+AUTH_USER_MODEL = "authentication.User"
+
 
 
 # Application definition
@@ -40,7 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_extensions',
-    'post',
+    'posts',
     'authentication',
     'gdstorage',
 ]
@@ -49,7 +55,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -122,11 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/localhost/static"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+# STATIC_ROOT = "/var/www/localhost/static"
+# STATICFILES_DIRS = [BASE_DIR / "static"]
 
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'audiback/django_gdrive_storage.json'
-GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '/DEP/media'
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'Backendify/django_gdrive_storage.json'
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '/media'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

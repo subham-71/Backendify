@@ -13,3 +13,9 @@ class PostLikeDislikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['likes', 'dislikes', 'liked_users', 'disliked_users']
+
+class DeletePostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Post
+        fields = ['id']
